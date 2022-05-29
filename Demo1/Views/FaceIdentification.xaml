@@ -22,10 +22,6 @@
         </Grid>
     </ScrollView>
 
-        <!--    <Label x:Name="lblGender" TextColor="Black"></Label>
-        <Label x:Name="lblAge" TextColor="Black"></Label>
-        <Label x:Name="lblSmile" TextColor="Black"></Label>
-        <Label x:Name="lblAnger" TextColor="Black"></Label>
-        <Label x:Name="lblGlasses" TextColor="Black"></Label> -->
+        
     
 </ContentPage>
