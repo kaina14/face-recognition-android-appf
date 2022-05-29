@@ -1,4 +1,4 @@
-﻿using Microsoft.ProjectOxford.Face;
+using Microsoft.ProjectOxford.Face;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -45,6 +45,8 @@ namespace Demo1
                 await LoadPhotoAsync(photo);
                 Console.WriteLine($"CapturePhotoAsync COMPLETED:{PhotoPath} ");
             }
+            
+            
             catch (FeatureNotSupportedException fnsEx)
             {
                 // Feature is not supported on the device
@@ -89,34 +91,40 @@ namespace Demo1
 
         public async Task MakeAnalysisRequest(string imageFilePath)
         {
-            HttpClient client = new HttpClient();
-            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", "948312e2e5954e7c829948f8e09670ee");
+            try{
+                HttpClient client = new HttpClient();
+                client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", "948312e2e5954e7c829948f8e09670ee");
 
-            string requestParameters = "returnFaceId=true&returnFaceLandmarks=false" +
-                "&returnFaceAttributes=age,gender,headPose,smile,facialHair,glasses," +
-                "emotion,hair,makeup,occlusion,accessories,blur,exposure,noise";
+                string requestParameters = "returnFaceId=true&returnFaceLandmarks=false" +
+                    "&returnFaceAttributes=age,gender,headPose,smile,facialHair,glasses," +
+                    "emotion,hair,makeup,occlusion,accessories,blur,exposure,noise";
 
-            string uri = "https://centralindia.api.cognitive.microsoft.com/face/v1.0/detect" + "?" + requestParameters;
-            HttpResponseMessage response;
-            byte[] byteData = GetImageAsByteArray(imageFilePath);
+                string uri = "https://centralindia.api.cognitive.microsoft.com/face/v1.0/detect" + "?" + requestParameters;
+                HttpResponseMessage response;
+                byte[] byteData = GetImageAsByteArray(imageFilePath);
 
-            using (ByteArrayContent content = new ByteArrayContent(byteData))
-            {
-                content.Headers.ContentType = new MediaTypeHeaderValue("application/octet-stream");
-                response = await client.PostAsync(uri, content);
-
-                string contentString = await response.Content.ReadAsStringAsync();
-
-                List<ResponseModel> faceDetails = JsonConvert.DeserializeObject<List<ResponseModel>>(contentString);
-                if (faceDetails.Count != 0)
+                using (ByteArrayContent content = new ByteArrayContent(byteData))
                 {
-                    lblGender.Text = "Gender : " + faceDetails[0].faceAttributes.gender;
-                    lblAge.Text = "Age : " + faceDetails[0].faceAttributes.age;
-                    lblSmile.Text = "Smile : " + faceDetails[0].faceAttributes.smile.ToString("0.0");
-                    lblAnger.Text = "Anger : " + faceDetails[0].faceAttributes.emotion.anger;
-                    lblGlasses.Text = "Glasses : " + faceDetails[0].faceAttributes.glasses;
-                }
+                    content.Headers.ContentType = new MediaTypeHeaderValue("application/octet-stream");
+                    response = await client.PostAsync(uri, content);
 
+                    string contentString = await response.Content.ReadAsStringAsync();
+
+                    List<ResponseModel> faceDetails = JsonConvert.DeserializeObject<List<ResponseModel>>(contentString);
+                    if (faceDetails.Count != 0)
+                    {
+                        lblGender.Text = "Gender : " + faceDetails[0].faceAttributes.gender;
+                        lblAge.Text = "Age : " + faceDetails[0].faceAttributes.age;
+                        lblSmile.Text = "Smile : " + faceDetails[0].faceAttributes.smile.ToString("0.0");
+                        lblAnger.Text = "Anger : " + faceDetails[0].faceAttributes.emotion.anger;
+                        lblGlasses.Text = "Glasses : " + faceDetails[0].faceAttributes.glasses;
+                    }
+
+                }
+            }
+            catch (Java.Net.UnknownHostException ex)
+            {
+                await DisplayAlert("Mgs", "No Internet connected", "Ok");
             }
         }
         public byte[] GetImageAsByteArray(string imageFilePath)
