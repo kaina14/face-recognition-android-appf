@@ -1,4 +1,4 @@
-﻿using Demo1.Model;
+using Demo1.Model;
 using Microsoft.ProjectOxford.Face;
 using System;
 using System.Collections.Generic;
@@ -14,6 +14,7 @@ using Xamarin.Forms.Xaml;
 
 namespace Demo1
 {
+
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class SecurePost : ContentPage
     {
@@ -38,7 +39,7 @@ namespace Demo1
             BindingContext = this;
 
 
-
+            //Data template is applied to posts
             DataTemplate dataTemplate = new DataTemplate(() =>
             {
                 Grid _grid = new Grid();
@@ -50,7 +51,7 @@ namespace Demo1
 
 
                 Label labelDate = new Label();
-                labelDate.TextColor = Color.Black;
+                labelDate.TextColor = Color.DeepSkyBlue;
                 labelDate.HorizontalOptions = LayoutOptions.StartAndExpand;
                 labelDate.SetBinding(Label.TextProperty, "Date");
                 Grid.SetRow(labelDate, 0);
@@ -72,7 +73,7 @@ namespace Demo1
                 Grid.SetRow(labelContent, 1);
                 Grid.SetColumnSpan(labelContent, 2);
                 _grid.Children.Add(labelContent);
-                _grid.BackgroundColor = Color.Gray;
+                _grid.BackgroundColor = Color.WhiteSmoke;
                 return _grid;
 
             });
@@ -106,7 +107,7 @@ namespace Demo1
             }
         }
 
-        async Task LoadPhotoAsync(FileResult photo)
+        async Task LoadPhotoAsync(FileResult photo) //Copies photo in stream
         {
             // canceled
             if (photo == null)
@@ -122,18 +123,19 @@ namespace Demo1
                 await stream.CopyToAsync(newStream);
 
             PhotoPath = newFile;
-            await RecognitionFace("home", PhotoPath);
-            //    await MakeAnalysisRequest(PhotoPath);
+            await RecognitionFace("studentn", PhotoPath);
+            
             Device.BeginInvokeOnMainThread(() =>
             {
                 btnNewPost.IsEnabled = true;
 
             });
         }
-
+        
         public async Task RecognitionFace(String PersonGroupId, string imgPath)
+            //This sends API call to azure for recognition of face
         {
-            //   _img.Source = imgPath;
+              
             using (Stream s = File.OpenRead(imgPath))
             {
                 try
@@ -148,7 +150,7 @@ namespace Demo1
                         {
 
                             Console.WriteLine("No one identified");
-                            await DisplayAlert("Msg", "Verificarion failed", "Ok");
+                            await DisplayAlert("Msg", "Verification failed", "Ok");
                         }
                         else
                         {
@@ -157,23 +159,26 @@ namespace Demo1
                             var person = await faceServiceClient.GetPersonAsync(PersonGroupId, candidateId);
                             Console.WriteLine($"Identified as: {person.Name}");
                             lblMsg.Text = $"Identified as: {person.Name}";
-                            if(person.Name == "hrishikesh")
+                            if(person.Name == "kaina")
                             {
                                 Posts[Posts.Count - 1] = new Post { Content = editorPost.Text, Time = DateTime.Now.ToShortTimeString(), Date = DateTime.Now.ToShortDateString() };
-                                await DisplayAlert(title: "Verificarion done", message: "New Post added successfully", cancel: "Ok");
+                                await DisplayAlert(title: "Verification done", message: "New Post added successfully", cancel: "Ok");
                             }
                             else
                             {
-                                await DisplayAlert("Verificarion Failed", "Try again", "Ok");
+                                await DisplayAlert("Verification Failed", "Try again", "Ok");
                             }
-                            //           clvPosts.ItemsSource = null;
-                            //            clvPosts.ItemsSource = Posts;
+                            
                         }
                     }
                 }
+                catch (Java.Net.UnknownHostException ex)
+                {
+                    await DisplayAlert("Mgs", "No Internet connected", "Ok");
+                }
                 catch (Exception ex)
                 {
-                    await DisplayAlert($"Verificarion Failed-{ex.Message}", "Try again", "Ok");
+                    await DisplayAlert($"Verification Failed-{ex.Message}", "Try again", "Ok");
                 }
             }
         }
