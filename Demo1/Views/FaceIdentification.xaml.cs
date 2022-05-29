@@ -1,4 +1,4 @@
-﻿using Demo1.Model;
+using Demo1.Model;
 using Microsoft.ProjectOxford.Face;
 using Newtonsoft.Json;
 using System;
@@ -18,8 +18,10 @@ using Xamarin.Forms;
 
 namespace Demo1
 {
+
     public partial class FaceIdentification : ContentPage
     {
+        
         FaceServiceClient faceServiceClient = new FaceServiceClient("948312e2e5954e7c829948f8e09670ee", "https://centralindia.api.cognitive.microsoft.com/face/v1.0");
         string FolderPath = Android.App.Application.Context.GetExternalFilesDir("").AbsolutePath;
         string FilePath;
@@ -39,7 +41,7 @@ namespace Demo1
         }
 
    
-        async Task TakePhotoAsync(bool isEnd)
+        async Task TakePhotoAsync(bool isEnd)//Opens camera app from phone
         {
             lblMsg.Text = "";
             _img.Source = null;
@@ -52,7 +54,7 @@ namespace Demo1
             {
                 var photo = await MediaPicker.CapturePhotoAsync();
                 await LoadPhotoAsync(photo,isEnd);
-                Console.WriteLine($"CapturePhotoAsync COMPLETED:{PhotoPath} ");
+
             }
             catch (FeatureNotSupportedException fnsEx)
             {
@@ -64,13 +66,13 @@ namespace Demo1
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"CapturePhotoAsync THREW: {ex.Message}");
+                await DisplayAlert("Mgs", ex.Message, "Ok"); ;
             }
         }
 
-        async Task LoadPhotoAsync(FileResult photo,bool isEnd)
+        async Task LoadPhotoAsync(FileResult photo,bool isEnd) //this method copies the photos into stream
         {
-            // canceled
+            
             if (photo == null)
             {
                 PhotoPath = null;
@@ -87,7 +89,7 @@ namespace Demo1
                 await stream.CopyToAsync(newStream);
 
             PhotoPath = newFile;
-            await RecognitionFace("home", PhotoPath,isEnd);
+            await RecognitionFace("studentn", PhotoPath,isEnd);
            
              Device.BeginInvokeOnMainThread(() =>
             {
@@ -101,10 +103,10 @@ namespace Demo1
             _img.Source = imgPath;
             using (Stream s = File.OpenRead(imgPath))
             {
-                var faces = await faceServiceClient.DetectAsync(s);
-                var faceIds = faces.Select(face => face.FaceId).ToArray();
                 try
                 {
+                var faces = await faceServiceClient.DetectAsync(s);
+                var faceIds = faces.Select(face => face.FaceId).ToArray();
                     var results = await faceServiceClient.IdentifyAsync(PersonGroupId, faceIds);
                     foreach (var identifyResults in results)
                     {
@@ -119,7 +121,7 @@ namespace Demo1
                             Console.WriteLine($"Identified as: {person.Name}");
                             lblMsg.Text = $"Identified as: {person.Name}";
                             
-                            if(person.Name == "hrishikesh" && isEnd)      //Admin name here
+                            if(person.Name == "kaina" && isEnd)      //Admin name here
                             {
                                 IsEnd = true;
                                 return;
@@ -129,18 +131,22 @@ namespace Demo1
                            
                             switch(person.Name)  //setting attendance true
                             {
-                                case "hrishikesh":              //Admin name
-                                    preAbs["hrishikesh"] = true;  //Admin
+                                case "kaina":              //Admin name
+                                    preAbs["kaina"] = true;  //Admin
                                     break;
-                                case "ram":  //Admin
-                                    preAbs["ram"] = true;  //Admin
+                                case "alfiya":  //Admin
+                                    preAbs["alfiya"] = true;  //Admin
                                     break;
-                                case "omkar":  //Admin
-                                    preAbs["omkar"] = true;  //Admin
+                                case "vaishnavi":  //Admin
+                                    preAbs["vaishnavi"] = true;  //Admin
                                     break;
                             }
                         }
                     }
+                }
+                catch (Java.Net.UnknownHostException ex)
+                {
+                    await DisplayAlert("Mgs", "No Internet connected", "Ok");
                 }
                 catch (Exception ex)
                 {
@@ -296,6 +302,7 @@ namespace Demo1
                             WriteXmlFile( ((Tuple<bool, string>)preAbs[i]).Item2, DateTime.Now.ToShortDateString(), DateTime.Now.ToShortTimeString(), false);
                         }
                     }
+                    await DisplayAlert("Mgs", "Attendance Marked", "Ok");
                 }
                 else 
                 {
