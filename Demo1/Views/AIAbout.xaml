@@ -4,15 +4,16 @@
              x:Class="Demo1.AIAbout">
     <ContentPage.Content>
         <StackLayout>
-            <Label TextColor="Black" Text="This feature identifies following facial attributes-&#10;
+            <Label TextColor="Black" Text="Identifies following facial attributes:&#10; 
                    &#10;
                    -Gender &#10;
                    -Age &#10;
                    -Smile &#10;
                    -Anger &#10;
                    -Glasses &#10;"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+                 VerticalOptions="CenterAndExpand" 
+                
+                   BackgroundColor="LightSteelBlue" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
