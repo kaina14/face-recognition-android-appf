@@ -1,4 +1,4 @@
-﻿using Microsoft.ProjectOxford.Face;
+using Microsoft.ProjectOxford.Face;
 using Microsoft.ProjectOxford.Face.Contract;
 using System.IO;
 namespace FR
@@ -38,7 +38,7 @@ namespace FR
 
         private async void DetectAndRegisterFace(string personGroupID, CreatePersonResult person, string pathImg)
         {
-            foreach (var imgPath in Directory.GetFiles(pathImg, "*.jpg"))
+            foreach (var imgPath in Directory.GetFiles(pathImg, "*.jpeg"))
             {
                 using(Stream s = File.OpenRead(imgPath))
                 {
@@ -56,7 +56,7 @@ namespace FR
                 trainingStatus = await  faceServiceClient.GetPersonGroupTrainingStatusAsync(PersonGroupID);
                 if(trainingStatus.Status != Status.Running)
                     break;
-              await  Task.Delay(1000);
+             // await  Task.Delay(1000);
             }
             Console.WriteLine("Training AI Completed");
         }
@@ -93,11 +93,14 @@ namespace FR
         }
         static  void Main()
         {
+            //This block is used for training the photo and verifying it after training
+            //For training comment line of p.RecognitionFace
+            //for verfying comment line no. 100,101,102
             Program p = new Program();
-            p.CreatPersonGroup("studentnew", "student");
-            p.AddPersonToGroup("studentnew", "omkar", @"C:\Users\Hrishikesh\Desktop\students\");
-            p.TrainingAI("studentnew");
-         //           p.RecognitionFace("hollywood", @"C:\Users\Hrishikesh\Desktop\students\JasonStatham-2019.jpg");
+         //  p.CreatPersonGroup("studentn", "studentnone");
+         //   p.AddPersonToGroup("studentn", "Vaishnavi", @"C:\Users\lenovo\OneDrive\Desktop\Vaishnavi");
+         //   p.TrainingAI("studentn");
+            p.RecognitionFace("studentn", @"C:\Users\lenovo\OneDrive\Desktop\Vaishnavi\vaishanvi.jpeg");
             Console.ReadLine();
         }
     }
