@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Demo1.AIAbout">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label TextColor="Black" Text="This feature identifies following facial attributes-&#10;
+                   &#10;
+                   -Gender &#10;
+                   -Age &#10;
+                   -Smile &#10;
+                   -Anger &#10;
+                   -Glasses &#10;"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Demo1.AttributesIdentification">
+    <ContentPage.Content>
+        <ScrollView>
+            
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="3*"></RowDefinition>
+                <RowDefinition Height=".4*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            
+            <Image x:Name="_img" Grid.Row="0" BackgroundColor="LightGray" ></Image>
+            <Button x:Name="btnPickImg" Clicked="btnPickImg_Clicked" Text="Take Photo" Grid.Row="1"></Button>
+
+            <StackLayout Orientation="Vertical" Grid.Row="2">
+                
+                <Label x:Name="lblGender" TextColor="Black" Text="333"></Label>
+                <Label x:Name="lblAge" TextColor="Black" Text="333"></Label>
+                <Label x:Name="lblSmile" TextColor="Black" Text="333"></Label>
+                <Label x:Name="lblAnger" TextColor="Black" Text="333"></Label>
+                <Label x:Name="lblGlasses" TextColor="Black" Text="2332"></Label>
+            
+            </StackLayout>
+
+        </Grid>
+        </ScrollView>
+        
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,146 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\Hrishikesh\\source\\repos\\Demo1\\Demo1.iOS\\Demo1.iOS.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\Hrishikesh\\source\\repos\\Demo1\\Demo1.iOS\\Demo1.iOS.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Hrishikesh\\source\\repos\\Demo1\\Demo1.iOS\\Demo1.iOS.csproj",
+        "projectName": "Demo1.iOS",
+        "projectPath": "C:\\Users\\Hrishikesh\\source\\repos\\Demo1\\Demo1.iOS\\Demo1.iOS.csproj",
+        "packagesPath": "C:\\Users\\Hrishikesh\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Hrishikesh\\source\\repos\\Demo1\\Demo1.iOS\\obj\\",
+        "projectStyle": "PackageReference",
+        "skipContentFileWrite": true,
+        "configFilePaths": [
+          "C:\\Users\\Hrishikesh\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "xamarinios10"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "xamarinios10": {
+            "projectReferences": {
+              "C:\\Users\\Hrishikesh\\source\\repos\\Demo1\\Demo1\\Demo1.csproj": {
+                "projectPath": "C:\\Users\\Hrishikesh\\source\\repos\\Demo1\\Demo1\\Demo1.csproj"
+              }
+            }
+          }
+        }
+      },
+      "frameworks": {
+        "xamarinios10": {
+          "dependencies": {
+            "Microsoft.ProjectOxford.Face.DotNetStandard": {
+              "target": "Package",
+              "version": "[1.0.0, )"
+            },
+            "Torutek.Microsoft.ProjectOxford.Face": {
+              "target": "Package",
+              "version": "[1.2.0, )"
+            },
+            "Xamarin.Essentials": {
+              "target": "Package",
+              "version": "[1.7.0, )"
+            },
+            "Xamarin.Forms": {
+              "target": "Package",
+              "version": "[5.0.0.2196, )"
+            }
+          }
+        }
+      },
+      "runtimes": {
+        "win": {
+          "#import": []
+        },
+        "win-x64": {
+          "#import": []
+        },
+        "win-x86": {
+          "#import": []
+        }
+      }
+    },
+    "C:\\Users\\Hrishikesh\\source\\repos\\Demo1\\Demo1\\Demo1.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Hrishikesh\\source\\repos\\Demo1\\Demo1\\Demo1.csproj",
+        "projectName": "Demo1",
+        "projectPath": "C:\\Users\\Hrishikesh\\source\\repos\\Demo1\\Demo1\\Demo1.csproj",
+        "packagesPath": "C:\\Users\\Hrishikesh\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Hrishikesh\\source\\repos\\Demo1\\Demo1\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Hrishikesh\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.0": {
+            "targetAlias": "netstandard2.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.0": {
+          "targetAlias": "netstandard2.0",
+          "dependencies": {
+            "Microsoft.ProjectOxford.Face.DotNetStandard": {
+              "target": "Package",
+              "version": "[1.0.0, )"
+            },
+            "NETStandard.Library": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.3, )",
+              "autoReferenced": true
+            },
+            "Torutek.Microsoft.ProjectOxford.Face": {
+              "target": "Package",
+              "version": "[1.2.0, )"
+            },
+            "Xamarin.Essentials": {
+              "target": "Package",
+              "version": "[1.7.0, )"
+            },
+            "Xamarin.Forms": {
+              "target": "Package",
+              "version": "[5.0.0.2196, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

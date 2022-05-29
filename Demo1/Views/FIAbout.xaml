@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Demo1.FIAbout">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="This feature tracks attendance by identifying the face using the model which was trained for face Identification.&#10;&#10; When perticular students face is identified then the attendance can be noted accordingly.&#10;&#10;
+When face is not identified then the attendacne is marked as absent.&#10;&#10;
+The attendance records are maintianed in xml (Attendance.xml) file for easier data maipulations and to export it as sql server database file.&#10;&#10;
+The attendace is maintained in app file which can be find at Android/Data/Demo1/Files/Attendance.xml"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" TextColor="Black" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

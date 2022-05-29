@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Demo1.FaceIdentification">
+
+    <ScrollView>
+        
+        <Grid Padding="5" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="10*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" ></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+                <Image x:Name="_img" BackgroundColor="LightGray" Grid.ColumnSpan="2" ></Image>
+            <Button x:Name="btnTakePhoto" Clicked="btnTakePhoto_Clicked" Text="Take Photo" Grid.Row="1"  Grid.Column="0" HorizontalOptions="Center" ></Button>
+            <Button x:Name="btnEndAttendance" Clicked="btnEndAttendance_Clicked" Text="End attendance" Grid.Row="1"  Grid.Column="1" HorizontalOptions="Center" ></Button>
+            <Label x:Name="lblMsg" TextColor="Black" Grid.Row="2" HorizontalOptions="Center" Text=""></Label>
+        </Grid>
+    </ScrollView>
+
+        <!--    <Label x:Name="lblGender" TextColor="Black"></Label>
+        <Label x:Name="lblAge" TextColor="Black"></Label>
+        <Label x:Name="lblSmile" TextColor="Black"></Label>
+        <Label x:Name="lblAnger" TextColor="Black"></Label>
+        <Label x:Name="lblGlasses" TextColor="Black"></Label> -->
+    
+</ContentPage>

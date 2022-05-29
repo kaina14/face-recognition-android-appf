@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Shell xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Demo1.ShellPage"
+            xmlns:FI="clr-namespace:Demo1"
+        Shell.TabBarTitleColor="Blue"
+       Shell.TabBarUnselectedColor="Gray"
+       Shell.NavBarIsVisible="False"
+        >
+        
+
+    <TabBar >
+        <Tab Title="Face Identification" Icon="FI.png">
+            <ShellContent ContentTemplate="{DataTemplate FI:FaceIdentification }" Title="Try here"  ></ShellContent>
+            <ShellContent ContentTemplate="{DataTemplate FI:FIAbout }" Title="About"></ShellContent>
+        </Tab>
+        <Tab Title="Face Attributes" Icon="FA.png">
+            <ShellContent ContentTemplate="{DataTemplate FI:AttributesIdentification}" Title="Try here"></ShellContent>
+            <ShellContent ContentTemplate="{DataTemplate FI:AIAbout}" Title="About"></ShellContent>
+        </Tab>
+        <Tab Title="Social-Media Posts" Icon="socialmedia.png">
+            <ShellContent ContentTemplate="{DataTemplate FI:SecurePost}" Title="Try here"></ShellContent>
+            <ShellContent ContentTemplate="{DataTemplate FI:SPAbout}" Title="About"></ShellContent>
+        </Tab>
+        
+    </TabBar>
+
+</Shell>
