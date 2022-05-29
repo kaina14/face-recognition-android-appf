@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -6,9 +6,9 @@ namespace Demo1.Model
 {
     public class PreAbs
     {
-        public Tuple<bool, string> hrishikesh { get; set; } = new Tuple<bool, string>(false,nameof(hrishikesh));
-        public Tuple<bool, string> ram { get; set; } = new Tuple<bool, string>(false, nameof(ram));
-        public Tuple<bool, string> omkar { get; set; }= new Tuple<bool, string>(false,nameof(omkar));
+        public Tuple<bool, string> kaina { get; set; } = new Tuple<bool, string>(false,nameof(kaina));
+        public Tuple<bool, string> alfiya { get; set; } = new Tuple<bool, string>(false, nameof(alfiya));
+        public Tuple<bool, string> Vaishnavi { get; set; }= new Tuple<bool, string>(false,nameof(Vaishnavi));
 
 
 
@@ -16,34 +16,34 @@ namespace Demo1.Model
         {
             get
             {
-                if (name.ToUpper() == "HRISHIKESH")
+                if (name.ToUpper() == "KAINA")
                 {
-                    return hrishikesh;
+                    return kaina;
                 }
-                else if (name.ToUpper() == "RAM")
+                else if (name.ToUpper() == "ALFIYA")
                 {
-                    return ram;
+                    return alfiya;
                 }
-                else if (name.ToUpper() == "OMKAR")
+                else if (name.ToUpper() == "VAISHNAVI")
                 {
-                    return omkar;
+                    return Vaishnavi;
                 }
                 else
                     return null;
             }
             set
             {
-                if(name.ToUpper()=="HRISHIKESH")
+                if(name.ToUpper()=="KAINA")
                 {
-                    hrishikesh = new Tuple<bool, string>((bool)value,nameof(hrishikesh).ToLower());
+                    kaina = new Tuple<bool, string>((bool)value,nameof(kaina).ToLower());
                 }
-                else if(name.ToUpper()=="RAM")
+                else if(name.ToUpper()=="ALFIYA")
                 {
-                    ram = new Tuple<bool, string>((bool)value, nameof(hrishikesh).ToLower());
+                    alfiya = new Tuple<bool, string>((bool)value, nameof(alfiya).ToLower());
                 }
-                else if(name.ToUpper() =="OMKAR")
+                else if(name.ToUpper() =="VAISHNAVI")
                 {
-                    omkar = new Tuple<bool, string>((bool)value, nameof(hrishikesh).ToLower());
+                    Vaishnavi = new Tuple<bool, string>((bool)value, nameof(Vaishnavi).ToLower());
                 }
             }
             
@@ -56,15 +56,15 @@ namespace Demo1.Model
             {
                 if (nameIndex == 0)
                 {
-                    return hrishikesh;
+                    return kaina;
                 }
                 else if (nameIndex == 1)
                 {
-                    return ram;
+                    return alfiya;
                 }
                 else if (nameIndex == 2)
                 {
-                    return omkar;
+                    return Vaishnavi;
                 }
                 else
                     return null;
@@ -73,15 +73,15 @@ namespace Demo1.Model
             {
                 if (nameIndex == 0)
                 {
-                    hrishikesh = new Tuple<bool, string>((bool)value,nameof(hrishikesh).ToLower());
+                    kaina = new Tuple<bool, string>((bool)value,nameof(kaina).ToLower());
                 }
                 else if (nameIndex == 1)
                 {
-                    ram = new Tuple<bool, string>((bool)value, nameof(ram).ToLower());
+                    alfiya = new Tuple<bool, string>((bool)value, nameof(alfiya).ToLower());
                 }
                 else if (nameIndex == 2)
                 {
-                    omkar = new Tuple<bool, string>((bool)value, nameof(omkar).ToLower());
+                    Vaishnavi = new Tuple<bool, string>((bool)value, nameof(Vaishnavi).ToLower());
                 }
             }
 
