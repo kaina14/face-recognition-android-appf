@@ -17,11 +17,11 @@
 
             <StackLayout Orientation="Vertical" Grid.Row="2">
                 
-                <Label x:Name="lblGender" TextColor="Black" Text="333"></Label>
-                <Label x:Name="lblAge" TextColor="Black" Text="333"></Label>
-                <Label x:Name="lblSmile" TextColor="Black" Text="333"></Label>
-                <Label x:Name="lblAnger" TextColor="Black" Text="333"></Label>
-                <Label x:Name="lblGlasses" TextColor="Black" Text="2332"></Label>
+                <Label x:Name="lblGender" TextColor="Black" Text=""></Label>
+                <Label x:Name="lblAge" TextColor="Black" Text=""></Label>
+                <Label x:Name="lblSmile" TextColor="Black" Text=""></Label>
+                <Label x:Name="lblAnger" TextColor="Black" Text=""></Label>
+                <Label x:Name="lblGlasses" TextColor="Black" Text=""></Label>
             
             </StackLayout>
 
