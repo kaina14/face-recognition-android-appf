@@ -1,14 +1,15 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Demo1.SPAbout">
     <ContentPage.Content>
         <StackLayout>
-            <Label TextColor="Black" Text="This feature shows the use of face recognition in preventing social media posts by bots.&#10;&#10;
-Each time when user post anything on social media he has to do face recognition to upload his post.&#10;&#10;
-This might help in reducing the post done by bots."
+            <Label TextColor="Black" Text="1-This feature shows the use of face recognition in preventing social media posts by bots.&#10;&#10;
+2-Each time when user post anything on social media they need to do face recognition to upload their post.&#10;&#10;
+3-This might help in reducing the post done by bots and fake accounts."
                 VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+                HorizontalOptions="CenterAndExpand"
+                   BackgroundColor="LightSteelBlue"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
