@@ -4,12 +4,12 @@
              x:Class="Demo1.FIAbout">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="This feature tracks attendance by identifying the face using the model which was trained for face Identification.&#10;&#10; When perticular students face is identified then the attendance can be noted accordingly.&#10;&#10;
-When face is not identified then the attendacne is marked as absent.&#10;&#10;
-The attendance records are maintianed in xml (Attendance.xml) file for easier data maipulations and to export it as sql server database file.&#10;&#10;
-The attendace is maintained in app file which can be find at Android/Data/Demo1/Files/Attendance.xml"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" TextColor="Black" />
+            <Label Text="1-This feature tracks attendance by identifying the face using the model which was trained for face Identification.&#10;&#10; 2-When particular students face is identified then the attendance can be noted accordingly.&#10;&#10;
+3-When face is not identified then the attendance is marked as absent.&#10;&#10;
+4-The attendance records are maintianed in xml (Attendance.xml) file for easier data maipulations and to export it as sql server database file.&#10;&#10;
+5-The attendance is maintained in app file which can be find at Android/Data/Demo1/Files/Attendance.xml"
+                VerticalOptions="CenterAndExpand"  
+                HorizontalOptions="CenterAndExpand" TextColor="Black" BackgroundColor="LightSteelBlue" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
